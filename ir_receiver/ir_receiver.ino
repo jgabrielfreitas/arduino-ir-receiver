@@ -1,5 +1,4 @@
 #include "led.h"
-int delay_value = 50;
 
 void setup() {
   // put your setup code here, to run once:

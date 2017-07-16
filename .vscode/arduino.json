@@ -1,0 +1,5 @@
+{
+    "port": "/dev/cu.usbserial-A105J650",
+    "board": "arduino:avr:uno",
+    "sketch": "ir_receiver/ir_receiver.ino"
+}
