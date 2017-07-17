@@ -1,11 +1,20 @@
+#include <IRremote.h>
 #include "led.h"
 
+int IRpin = 11;
+IRrecv irrecv(IRpin);
+decode_results results;
+
 void setup() {
-  // put your setup code here, to run once:
   pinMode(LED_PIN, OUTPUT);
+  Serial.begin(9600);
+  irrecv.enableIRIn(); // Start the receiver
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  blink_fast();
+  if (irrecv.decode(&results)) {
+    Serial.println(results.value, DEC); // Print the Serial 'results.value'
+    irrecv.resume();   // Receive the next value
+    blink_fast();
+  }
 }
